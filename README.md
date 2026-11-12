@@ -49,18 +49,46 @@ Para guardar una copia, cierra la aplicación y, si la estás usando, la web loc
 
 Desinstalar el programa conserva la base. La versión instalada y la que se ejecuta desde el código usan ubicaciones distintas.
 
-## Ejecutar desde el código fuente
+## Ejecutar desde GitHub sin el instalador
 
-Para el panel flotante necesitas Windows y **Python 3.12 con Tkinter**, que es el entorno usado para construir esta versión. Desde la raíz del proyecto:
+### 1. Descargar el código
+
+En [GitHub](https://github.com/andres934/AccountRotationManager), pulsa **Code → Download ZIP** y extrae todo el contenido. Abre en PowerShell la carpeta extraída que contiene `Iniciar.pyw`. Puedes hacerlo desde el Explorador de archivos escribiendo `powershell` en la barra de direcciones y pulsando **Intro**.
+
+Si ya tienes Git, también puedes clonar el proyecto desde PowerShell:
 
 ```powershell
-# Panel flotante sin terminal
-pythonw -B .\Iniciar.pyw
-
-# Web local auxiliar
-python -B .\app.py
+git clone https://github.com/andres934/AccountRotationManager.git
+cd AccountRotationManager
 ```
 
-También puedes abrir [Iniciar.cmd](Iniciar.cmd) para iniciar la web. En ambos casos, abre [127.0.0.1:8765](http://127.0.0.1:8765) en el navegador y deja la terminal abierta mientras la uses. La web comparte la base del proyecto con el panel ejecutado desde el código. Ofrece los controles básicos de rotación y un botón para deshacer el último registro. Los ajustes de ventana y las papeleras individuales del Historial están en el panel de escritorio.
+### 2. Preparar Python
 
-Si el panel no abre, revisa `inicio.log` en la misma carpeta que la base de datos. Para la estructura del código, las pruebas y la compilación del instalador, consulta [AGENTS.md](AGENTS.md).
+Necesitas Windows y **Python con Tkinter**. El proyecto se ha probado con Python 3.12. Si vas a instalarlo, usa el instalador completo de [Python para Windows](https://www.python.org/downloads/windows/), marca **Add Python to PATH** y conserva la opción **tcl/tk and IDLE**. Abre una terminal nueva después de instalarlo.
+
+Comprueba la instalación:
+
+```powershell
+python --version
+python -c "import tkinter, sqlite3; print('Tkinter y SQLite disponibles')"
+```
+
+Tkinter y SQLite vienen con la instalación completa de Python. No necesitas instalar paquetes con `pip`.
+
+### 3. Abrir el programa
+
+Desde la carpeta que contiene `Iniciar.pyw`, ejecuta:
+
+```powershell
+pythonw -B .\Iniciar.pyw
+```
+
+Se abrirá el panel flotante sin terminal. La primera vez se creará `rotacion.sqlite3` junto al código. Mantén los archivos en la misma carpeta y guárdala en un lugar donde tu usuario pueda escribir.
+
+Si `pythonw` no abre la ventana, prueba `python -B .\Iniciar.pyw` y consulta `inicio.log`, que se guarda junto a la base de datos.
+
+### Alternativa web local
+
+Abre [Iniciar.cmd](Iniciar.cmd) o ejecuta `python -B .\app.py` desde la raíz. Entra en [127.0.0.1:8765](http://127.0.0.1:8765) y deja la terminal abierta mientras uses la web. Ambas interfaces ejecutadas desde el código comparten la base local. La web ofrece los controles básicos de rotación y permite deshacer el último registro. Los ajustes de ventana y el borrado individual de registros están en el panel flotante.
+
+Para compilar un instalador propio o consultar cómo está construido el proyecto, lee [AGENTS.md](AGENTS.md).
