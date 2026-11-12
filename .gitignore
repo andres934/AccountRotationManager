@@ -1,0 +1,36 @@
+# Datos locales, copias SQLite y logs
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.log
+*.bak
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Empaquetado y distribuci?n generada
+/.package-build/
+/build/
+/dist/
+/Distribucion/
+*.spec
+
+# Configuraci?n local y credenciales
+.env
+.env.*
+!.env.example
+/.agents/
+/.codex/
+/.aws/
+/.vscode/
+/.idea/
+Thumbs.db
+Desktop.ini
