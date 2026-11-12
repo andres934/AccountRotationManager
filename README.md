@@ -4,6 +4,17 @@ Un panel flotante de Windows para saber qué cuenta de fondeo de futuros te toca
 
 El programa registra la cuenta, la fecha y el resultado. No ejecuta operaciones, no se conecta al bróker y no guarda importes o ganancias y pérdidas.
 
+## Inicio rápido si descargaste el código de GitHub
+
+Extrae el ZIP completo y abre la carpeta que contiene estos dos archivos. Con Python instalado en Windows, haz doble clic en el archivo que corresponda:
+
+| Quiero abrir | Archivo que debes ejecutar |
+| --- | --- |
+| **El panel flotante** | [`Iniciar.pyw`](Iniciar.pyw). Abre la aplicación de escritorio sin terminal. |
+| **La versión web** | [`Iniciar.cmd`](Iniciar.cmd). Deja la terminal abierta y entra en [127.0.0.1:8765](http://127.0.0.1:8765). |
+
+Si Windows no abre `Iniciar.pyw` con doble clic, abre PowerShell en esa carpeta y ejecuta `pythonw -B .\Iniciar.pyw`. Si aún no tienes Python, sigue los [pasos de preparación](#ejecutar-desde-github-sin-el-instalador).
+
 ## Instalación y requisitos
 
 - **Windows de 64 bits (x64)** para usar el instalador.
@@ -13,7 +24,7 @@ El programa registra la cuenta, la fecha y el resultado. No ejecuta operaciones,
 2. Sigue el asistente de instalación.
 3. Abre **Rotación de cuentas (instalada)** desde el escritorio o **Rotación de cuentas** desde el menú Inicio. El panel se abre sin terminal.
 
-El repositorio contiene el código fuente. Si tienes el instalador, puedes usarlo directamente. Si solo tienes el código, ejecuta el panel desde la fuente o genera el instalador siguiendo [AGENTS.md](AGENTS.md).
+El repositorio contiene el código fuente. Si tienes el instalador, puedes usarlo directamente. Si solo tienes el código, abre [`Iniciar.pyw`](Iniciar.pyw) para usar el panel o [`Iniciar.cmd`](Iniciar.cmd) para iniciar la web local.
 
 El instalador no tiene firma digital, por lo que Windows puede mostrar un aviso de SmartScreen. Si vas a compartir el programa, envía el EXE o el ZIP de la carpeta `Distribucion`. El ZIP contiene ese mismo EXE. Cada usuario empieza con una base vacía.
 
@@ -75,9 +86,9 @@ python -c "import tkinter, sqlite3; print('Tkinter y SQLite disponibles')"
 
 Tkinter y SQLite vienen con la instalación completa de Python. No necesitas instalar paquetes con `pip`.
 
-### 3. Abrir el programa
+### 3. Abrir el panel flotante con Iniciar.pyw
 
-Desde la carpeta que contiene `Iniciar.pyw`, ejecuta:
+Haz doble clic en [`Iniciar.pyw`](Iniciar.pyw) desde el Explorador de archivos. Si Windows te pide elegir una aplicación para abrirlo, abre PowerShell en esa misma carpeta y ejecuta:
 
 ```powershell
 pythonw -B .\Iniciar.pyw
@@ -87,8 +98,8 @@ Se abrirá el panel flotante sin terminal. La primera vez se creará `rotacion.s
 
 Si `pythonw` no abre la ventana, prueba `python -B .\Iniciar.pyw` y consulta `inicio.log`, que se guarda junto a la base de datos.
 
-### Alternativa web local
+### Abrir la web local con Iniciar.cmd
 
-Abre [Iniciar.cmd](Iniciar.cmd) o ejecuta `python -B .\app.py` desde la raíz. Entra en [127.0.0.1:8765](http://127.0.0.1:8765) y deja la terminal abierta mientras uses la web. Ambas interfaces ejecutadas desde el código comparten la base local. La web ofrece los controles básicos de rotación y permite deshacer el último registro. Los ajustes de ventana y el borrado individual de registros están en el panel flotante.
+Haz doble clic en [`Iniciar.cmd`](Iniciar.cmd) o ejecuta `python -B .\app.py` desde la raíz. Entra en [127.0.0.1:8765](http://127.0.0.1:8765) y deja la terminal abierta mientras uses la web. Ambas interfaces ejecutadas desde el código comparten la base local. La web ofrece los controles básicos de rotación y permite deshacer el último registro. Los ajustes de ventana y el borrado individual de registros están en el panel flotante.
 
 Para compilar un instalador propio o consultar cómo está construido el proyecto, lee [AGENTS.md](AGENTS.md).
